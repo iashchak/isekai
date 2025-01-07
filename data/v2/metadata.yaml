@@ -1,0 +1,49 @@
+---
+- name: boy_harem
+  speading: true
+  K: 1
+  alias: спутницы
+- name: devine_bleesing
+  speading: true
+  K: 1
+  alias: божественное благословение
+  universal_key: harem
+- name: girl_harem
+  speading: true
+  K: 1
+  alias: спутники
+  universal_key: harem
+- name: name
+  speading: false
+  K: 1
+  alias: имя
+- name: occupation
+  speading: false
+  K: 1
+  alias: занятость до начала истории
+- name: race
+  speading: false
+  K: 1
+  alias: раса после перерождения
+- name: reincarnation_cause
+  speading: false
+  K: 1
+  alias: причина перерождения
+- name: skill
+  speading: true
+  K: 1
+  alias: навык
+- name: unique_item
+  speading: true
+  K: 1
+  alias: уникальный предмет
+- name: timekiller
+  speading: true
+  K: 1
+  alias: чем занимался до начала истории в свободное время
+- name: weakness
+  speading: true
+  K: 1
+  alias: слабость
+
+  
