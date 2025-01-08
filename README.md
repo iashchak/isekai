@@ -46,18 +46,11 @@ Welcome to the **Isekai** project! This repository is a FastAPI-based backend de
 
 ---
 
-## Datasets
-
-The project includes the following data files (under `data/v2/`):
-{chr(10).join([f"- `{key}`: {', '.join(value['columns'])}" for key, value in analysis['data_overview'].items()])}
-
----
-
 ## Installation
 
 ### Prerequisites
 
-- Python 3.8+
+- Python 3.12+
 - Docker (optional)
 
 ### Steps
