@@ -21,7 +21,8 @@
 			"extensions": [
         		"github.copilot",
 				"github.vscode-github-actions",
-				"ms-python.python"
+				"ms-python.python",
+				"charliermarsh.ruff"
 			]
 		}
 	},

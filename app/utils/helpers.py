@@ -1,13 +1,13 @@
-import random
 import numpy as np
 import pandas as pd
 from faker import Faker
-from fastapi.security import HTTPBasic, HTTPBasicCredentials
-from fastapi import FastAPI, Depends, HTTPException, status, Query
+from fastapi.security import HTTPBasicCredentials
+from fastapi import HTTPException, status
+
 
 def select_reverse_exponential_items(items: pd.Series,
-                                    k: float = 3,
-                                    p_zero: float = 0.4) -> pd.Series:
+                                     k: float = 3,
+                                     p_zero: float = 0.4) -> pd.Series:
     """
     Select a random number of items (from 0 up to len(items)) according
     to a "reverse exponential"-like scheme:
@@ -36,11 +36,13 @@ def select_reverse_exponential_items(items: pd.Series,
         return pd.Series(dtype=items.dtype)
     return items.sample(r)
 
+
 def select_random_item(items: pd.Series, k: int = 1) -> pd.Series:
     """
     Selects a random item from the series.
     """
     return items.sample(k)
+
 
 def generate_random_japaneese_name(is_male: bool = None) -> str:
     """
@@ -53,7 +55,7 @@ def generate_random_japaneese_name(is_male: bool = None) -> str:
         return fake.romanized_name_male()
     else:
         return fake.romanized_name_female()
-    
+
 
 # Функция проверки учетных данных
 def verify_credentials(credentials: HTTPBasicCredentials):
