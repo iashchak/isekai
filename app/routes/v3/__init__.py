@@ -2,10 +2,6 @@ from fastapi import APIRouter, Depends
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
 from app.routes.v3.hero_generator import HeroGenerator
 from app.utils.helpers import verify_credentials
-import logging
-
-logging.basicConfig(level=logging.DEBUG)
-logging.getLogger("transitions").setLevel(logging.INFO)
 
 router = APIRouter()
 
@@ -18,5 +14,6 @@ security = HTTPBasic()
 async def generate_hero(random_seed: int = None, credentials: HTTPBasicCredentials = Depends(security)):
     """Generate a random hero."""
     verify_credentials(credentials)
-    hero_data = hero.generate_hero(random_seed=random_seed)
+    hero.set_random_seed(random_seed)
+    hero_data = hero.generate_hero()
     return hero_data
