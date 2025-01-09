@@ -18,6 +18,8 @@ async def generate_hero(random_seed: int = None, credentials: HTTPBasicCredentia
     verify_credentials(credentials)
     hero.set_random_seed(random_seed)
     hero_data = hero.generate_hero()
+    story_data = story.generate_story()
+    hero_data["hero_path"] = " -> ".join(story_data.values())
     return hero_data
 
 

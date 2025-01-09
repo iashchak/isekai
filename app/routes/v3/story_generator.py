@@ -3,6 +3,8 @@ from transitions import Machine
 import random
 from faker import Faker
 import numpy as np
+import pandas as pd
+import os
 
 class MonomythSteps(Enum):
     INITIAL = "INITIAL"
@@ -24,25 +26,104 @@ class MonomythSteps(Enum):
     MASTER_OF_TWO_WORLDS = "MASTER_OF_TWO_WORLDS"
     FREEDOM_TO_LIVE = "FREEDOM_TO_LIVE"
 
+DATAPATH = os.path.join(os.path.dirname(__file__),
+                        "..", "..", "..", "data", "v3")
+
+# Read CSV files into a dictionary of DataFrames: attributes["skill"], etc.
+attributes = {
+    os.path.splitext(f)[0]: pd.read_csv(os.path.join(DATAPATH, f))
+    for f in os.listdir(DATAPATH)
+    if f.endswith(".csv")
+}
+
+
 class StoryGenerator(Machine):
     _transitions = [
-        {"trigger": "proceed", "source": MonomythSteps.INITIAL, "dest": MonomythSteps.CALL_TO_ADVENTURE},
-        {"trigger": "proceed", "source": MonomythSteps.CALL_TO_ADVENTURE, "dest": MonomythSteps.REFUSAL_OF_THE_CALL},
-        {"trigger": "proceed", "source": MonomythSteps.REFUSAL_OF_THE_CALL, "dest": MonomythSteps.SUPERNATURAL_AID},
-        {"trigger": "proceed", "source": MonomythSteps.SUPERNATURAL_AID, "dest": MonomythSteps.CROSSING_THE_FIRST_THRESHOLD},
-        {"trigger": "proceed", "source": MonomythSteps.CROSSING_THE_FIRST_THRESHOLD, "dest": MonomythSteps.BELLY_OF_THE_WHALE},
-        {"trigger": "proceed", "source": MonomythSteps.BELLY_OF_THE_WHALE, "dest": MonomythSteps.ROAD_OF_TRIALS},
-        {"trigger": "proceed", "source": MonomythSteps.ROAD_OF_TRIALS, "dest": MonomythSteps.MEETING_WITH_THE_GODDESS},
-        {"trigger": "proceed", "source": MonomythSteps.MEETING_WITH_THE_GODDESS, "dest": MonomythSteps.WOMAN_AS_TEMPTRESS},
-        {"trigger": "proceed", "source": MonomythSteps.WOMAN_AS_TEMPTRESS, "dest": MonomythSteps.ATONEMENT_WITH_THE_FATHER},
-        {"trigger": "proceed", "source": MonomythSteps.ATONEMENT_WITH_THE_FATHER, "dest": MonomythSteps.APOTHEOSIS},
-        {"trigger": "proceed", "source": MonomythSteps.APOTHEOSIS, "dest": MonomythSteps.THE_ULTIMATE_BOON},
-        {"trigger": "proceed", "source": MonomythSteps.THE_ULTIMATE_BOON, "dest": MonomythSteps.REFUSAL_OF_THE_RETURN},
-        {"trigger": "proceed", "source": MonomythSteps.REFUSAL_OF_THE_RETURN, "dest": MonomythSteps.THE_MAGIC_FLIGHT},
-        {"trigger": "proceed", "source": MonomythSteps.THE_MAGIC_FLIGHT, "dest": MonomythSteps.RESCUE_FROM_WITHOUT},
-        {"trigger": "proceed", "source": MonomythSteps.RESCUE_FROM_WITHOUT, "dest": MonomythSteps.THE_CROSSING_OF_THE_RETURN_THRESHOLD},
-        {"trigger": "proceed", "source": MonomythSteps.THE_CROSSING_OF_THE_RETURN_THRESHOLD, "dest": MonomythSteps.MASTER_OF_TWO_WORLDS},
-        {"trigger": "proceed", "source": MonomythSteps.MASTER_OF_TWO_WORLDS, "dest": MonomythSteps.FREEDOM_TO_LIVE},
+        {
+            "trigger": "proceed",
+            "source": MonomythSteps.INITIAL,
+            "dest": MonomythSteps.CALL_TO_ADVENTURE,
+        },
+        {
+            "trigger": "proceed",
+            "source": MonomythSteps.CALL_TO_ADVENTURE,
+            "dest": MonomythSteps.REFUSAL_OF_THE_CALL,
+        },
+        {
+            "trigger": "proceed",
+            "source": MonomythSteps.REFUSAL_OF_THE_CALL,
+            "dest": MonomythSteps.SUPERNATURAL_AID,
+        },
+        {
+            "trigger": "proceed",
+            "source": MonomythSteps.SUPERNATURAL_AID,
+            "dest": MonomythSteps.CROSSING_THE_FIRST_THRESHOLD,
+        },
+        {
+            "trigger": "proceed",
+            "source": MonomythSteps.CROSSING_THE_FIRST_THRESHOLD,
+            "dest": MonomythSteps.BELLY_OF_THE_WHALE,
+        },
+        {
+            "trigger": "proceed",
+            "source": MonomythSteps.BELLY_OF_THE_WHALE,
+            "dest": MonomythSteps.ROAD_OF_TRIALS,
+        },
+        {
+            "trigger": "proceed",
+            "source": MonomythSteps.ROAD_OF_TRIALS,
+            "dest": MonomythSteps.MEETING_WITH_THE_GODDESS,
+        },
+        {
+            "trigger": "proceed",
+            "source": MonomythSteps.MEETING_WITH_THE_GODDESS,
+            "dest": MonomythSteps.WOMAN_AS_TEMPTRESS,
+        },
+        {
+            "trigger": "proceed",
+            "source": MonomythSteps.WOMAN_AS_TEMPTRESS,
+            "dest": MonomythSteps.ATONEMENT_WITH_THE_FATHER,
+        },
+        {
+            "trigger": "proceed",
+            "source": MonomythSteps.ATONEMENT_WITH_THE_FATHER,
+            "dest": MonomythSteps.APOTHEOSIS,
+        },
+        {
+            "trigger": "proceed",
+            "source": MonomythSteps.APOTHEOSIS,
+            "dest": MonomythSteps.THE_ULTIMATE_BOON,
+        },
+        {
+            "trigger": "proceed",
+            "source": MonomythSteps.THE_ULTIMATE_BOON,
+            "dest": MonomythSteps.REFUSAL_OF_THE_RETURN,
+        },
+        {
+            "trigger": "proceed",
+            "source": MonomythSteps.REFUSAL_OF_THE_RETURN,
+            "dest": MonomythSteps.THE_MAGIC_FLIGHT,
+        },
+        {
+            "trigger": "proceed",
+            "source": MonomythSteps.THE_MAGIC_FLIGHT,
+            "dest": MonomythSteps.RESCUE_FROM_WITHOUT,
+        },
+        {
+            "trigger": "proceed",
+            "source": MonomythSteps.RESCUE_FROM_WITHOUT,
+            "dest": MonomythSteps.THE_CROSSING_OF_THE_RETURN_THRESHOLD,
+        },
+        {
+            "trigger": "proceed",
+            "source": MonomythSteps.THE_CROSSING_OF_THE_RETURN_THRESHOLD,
+            "dest": MonomythSteps.MASTER_OF_TWO_WORLDS,
+        },
+        {
+            "trigger": "proceed",
+            "source": MonomythSteps.MASTER_OF_TWO_WORLDS,
+            "dest": MonomythSteps.FREEDOM_TO_LIVE,
+        },
     ]
 
     def __init__(self):
@@ -72,7 +153,7 @@ class StoryGenerator(Machine):
             initial=MonomythSteps.INITIAL,
             send_event=True,
             auto_transitions=False,
-            after_state_change='auto_proceed',
+            after_state_change="auto_proceed",
         )
 
     def set_random_seed(self, random_seed: int = None):
@@ -91,57 +172,64 @@ class StoryGenerator(Machine):
         self.set_state(MonomythSteps.INITIAL)
         self.auto_proceed()
 
+    def sample_csv_column_string(self, key: str) -> str:
+        """
+        Generic method to pick a single random item from a CSV column.
+        key should match both the DataFrame key and the column name inside that DataFrame.
+        """
+        return attributes[key][key].sample(1).values[0]
+
     def on_enter_CALL_TO_ADVENTURE(self, event):
-        self.adventure_cause = self.fake.sentence()
+        self.adventure_cause = self.sample_csv_column_string("adventure_cause")
 
     def on_enter_REFUSAL_OF_THE_CALL(self, event):
-        self.refusal_cause = self.fake.sentence()
-        
+        self.refusal_cause = self.sample_csv_column_string("refusal_cause")
+
     def on_enter_SUPERNATURAL_AID(self, event):
-        self.aid = self.fake.sentence()
-        
+        self.aid = self.sample_csv_column_string("aid")
+
     def on_enter_CROSSING_THE_FIRST_THRESHOLD(self, event):
-        self.threshold = self.fake.sentence()
-        
+        self.threshold = self.sample_csv_column_string("threshold")
+
     def on_enter_BELLY_OF_THE_WHALE(self, event):
-        self.whale = self.fake.sentence()
-        
+        self.whale = self.sample_csv_column_string("whale")
+
     def on_enter_ROAD_OF_TRIALS(self, event):
-        self.trials = self.fake.sentence()
-        
+        self.trials = self.sample_csv_column_string("trials")
+
     def on_enter_MEETING_WITH_THE_GODDESS(self, event):
-        self.goddess = self.fake.sentence()
-        
+        self.goddess = self.sample_csv_column_string("goddess")
+
     def on_enter_WOMAN_AS_TEMPTRESS(self, event):
-        self.temptress = self.fake.sentence()
-        
+        self.temptress = self.sample_csv_column_string("temptress")
+
     def on_enter_ATONEMENT_WITH_THE_FATHER(self, event):
-        self.atonement = self.fake.sentence()
-        
+        self.atonement = self.sample_csv_column_string("atonement")
+
     def on_enter_APOTHEOSIS(self, event):
-        self.apotheosis = self.fake.sentence()
-        
+        self.apotheosis = self.sample_csv_column_string("apotheosis")
+
     def on_enter_THE_ULTIMATE_BOON(self, event):
-        self.boon = self.fake.sentence()
-        
+        self.boon = self.sample_csv_column_string("boon")
+
     def on_enter_REFUSAL_OF_THE_RETURN(self, event):
-        self.refusal_return = self.fake.sentence()
-        
+        self.refusal_return = self.sample_csv_column_string("refusal_return")
+
     def on_enter_THE_MAGIC_FLIGHT(self, event):
-        self.magic_flight = self.fake.sentence()
-        
+        self.magic_flight = self.sample_csv_column_string("magic_flight")
+
     def on_enter_RESCUE_FROM_WITHOUT(self, event):
-        self.rescue = self.fake.sentence()
-        
+        self.rescue = self.sample_csv_column_string("rescue")
+
     def on_enter_THE_CROSSING_OF_THE_RETURN_THRESHOLD(self, event):
-        self.return_threshold = self.fake.sentence()
-        
+        self.return_threshold = self.sample_csv_column_string("return_threshold")
+
     def on_enter_MASTER_OF_TWO_WORLDS(self, event):
-        self.master = self.fake.sentence()
-        
+        self.master = self.sample_csv_column_string("master")
+
     def on_enter_FREEDOM_TO_LIVE(self, event):
-        self.freedom = self.fake.sentence()
-        
+        self.freedom = self.sample_csv_column_string("freedom")
+
     def generate_story(self):
         self.reset_machine()
 
@@ -169,7 +257,8 @@ class StoryGenerator(Machine):
             story["random_seed"] = self.random_seed
 
         return story
-        
+
+
 story_generator = StoryGenerator()
 story_generator.set_random_seed(42)
 story_data = story_generator.generate_story()

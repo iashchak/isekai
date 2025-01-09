@@ -71,6 +71,8 @@ class HeroGenerator(Machine):
     ]
 
     def __init__(self):
+        self.random_seed = None
+        
         # Main hero attributes
         self.gender = None
         self.name = None
