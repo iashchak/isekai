@@ -19,10 +19,11 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-        		"github.copilot",
+        			"github.copilot",
 				"github.vscode-github-actions",
 				"ms-python.python",
-				"charliermarsh.ruff"
+				"charliermarsh.ruff",
+				"mechatroner.rainbow-csv"
 			]
 		}
 	},
