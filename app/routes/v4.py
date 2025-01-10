@@ -6,13 +6,22 @@ import os
 import random
 from typing import Dict, List, Optional, Set
 from faker import Faker
+import jsonlines  # P452f
 
 security = HTTPBasic()
 
 DATAPATH = os.path.join(os.path.dirname(__file__), "..", "..", "data", "v4")
 
-stage_templates_df = pd.read_csv(os.path.join(DATAPATH, "stage_templates.csv"), quotechar='"', error_bad_lines=False)
-variables_df = pd.read_csv(os.path.join(DATAPATH, "variables.csv"), quotechar='"')
+# P06c0
+def read_jsonl(file_path):
+    data = []
+    with jsonlines.open(file_path) as reader:
+        for obj in reader:
+            data.append(obj)
+    return data
+
+stage_templates_df = read_jsonl(os.path.join(DATAPATH, "stage_templates.jsonl"))
+variables_df = read_jsonl(os.path.join(DATAPATH, "variables.jsonl"))
 
 router = APIRouter()
 
@@ -26,28 +35,21 @@ class StoryState:
             self.flags.add(flag)
 
 def pick_template(stage: str, story_state: StoryState) -> Optional[Dict[str, object]]:
-    possible_templates = stage_templates_df[stage_templates_df['stage'] == stage].to_dict('records')
+    possible_templates = [t for t in stage_templates_df if t['stage'] == stage]
     valid_templates = [
-        t for t in possible_templates if all(req in story_state.flags for req in eval(t["requires"]))
+        t for t in possible_templates if all(req in story_state.flags for req in t["requires"])
     ]
     if not valid_templates:
         return None
     return random.choice(valid_templates)
 
 def apply_template(template: Dict[str, object], story_state: StoryState) -> str:
-    story_state.add_flags(eval(template.get("ensures", "[]")))
+    story_state.add_flags(template.get("ensures", []))
     return template["text"].format(**story_state.variables)
 
 def generate_variables() -> Dict[str, str]:
     fake = Faker("ja-JP")
-    variables = {
-        "place": fake.city(),
-        "isekai_origin": fake.city(),
-        "isekai_world": fake.word(),
-        "mentor": fake.name(),
-        "enemy": fake.name(),
-        "world": fake.word(),
-    }
+    variables = {var["variable"]: var["value"] for var in variables_df}
     if random.random() < 0.5:
         variables["magic_ability"] = fake.word() + " magic"
     else:

@@ -1,0 +1,25 @@
+{"stage": "ordinary_world", "text": "Вы живете тихой жизнью в городе {place}, ничего не предвещает беды.", "requires": [], "ensures": ["know_place"]}
+{"stage": "ordinary_world", "text": "Ваша привычная жизнь в {place} обретает новый смысл. Нечто странное витает в воздухе.", "requires": [], "ensures": ["know_place"]}
+{"stage": "call_to_adventure", "text": "Неожиданно перед вами открывается портал, и вы переноситесь из {isekai_origin} в фантастический мир {isekai_world}. Здесь начинается ваша история.", "requires": ["know_place"], "ensures": ["call_received"]}
+{"stage": "call_to_adventure", "text": "Ваша реальность искажается, и вы оказываетесь в {isekai_world}. Вокруг звучат слова о надвигающейся угрозе.", "requires": ["know_place"], "ensures": ["call_received"]}
+{"stage": "call_to_adventure", "text": "Вы узнаёте о надвигающейся угрозе, которая грозит разрушить всё, что вам дорого. Неожиданно вы оказываетесь в {isekai_world}.", "requires": ["know_place"], "ensures": ["call_received"]}
+{"stage": "refusal_of_call", "text": "Вы решаете, что это не ваша забота. Однако сомнения терзают вас.", "requires": ["call_received"], "ensures": ["call_refused"]}
+{"stage": "refusal_of_call", "text": "Вы отказываетесь: ответственность слишком велика. Но {mentor} убеждает вас передумать.", "requires": ["call_received"], "ensures": ["call_refused"]}
+{"stage": "meeting_the_mentor", "text": "Появляется {mentor}, обещая показать путь к спасению {isekai_world}.", "requires": ["call_refused"], "ensures": ["mentor_met"]}
+{"stage": "meeting_the_mentor", "text": "{mentor} рассказывает легенду о {isekai_world} и вашей роли в её спасении.", "requires": ["call_refused"], "ensures": ["mentor_met"]}
+{"stage": "crossing_first_threshold", "text": "Сомнения остаются позади: вы делаете шаг в неизведанное. {mentor} напоминает вам о силе, таящейся внутри.", "requires": ["mentor_met"], "ensures": ["crossed_threshold"]}
+{"stage": "crossing_first_threshold", "text": "Вы осваиваете первые шаги в {isekai_world}, оставляя всё позади. Магия ({magic_ability}) начинает пробуждаться в вас.", "requires": ["mentor_met"], "ensures": ["crossed_threshold"]}
+{"stage": "tests_allies_enemies", "text": "Первый враг — {enemy}. Вы понимаете, что в {isekai_world} вы не одни. Хорошо, что у вас есть {magic_ability}.", "requires": ["crossed_threshold"], "ensures": ["enemy_encountered"]}
+{"stage": "tests_allies_enemies", "text": "Вы находите союзника, который помогает противостоять угрозе {enemy}. Ваша {magic_ability} тоже оказывается весьма кстати.", "requires": ["crossed_threshold"], "ensures": ["enemy_encountered"]}
+{"stage": "approach_inmost_cave", "text": "Ваш путь ведет вас к сердцу {isekai_world}, где скрыта главная угроза.", "requires": ["enemy_encountered"], "ensures": ["approaching_cave"]}
+{"stage": "approach_inmost_cave", "text": "Вы приближаетесь к святая святых {isekai_world}. Здесь решится ваша судьба.", "requires": ["enemy_encountered"], "ensures": ["approaching_cave"]}
+{"stage": "ordeal", "text": "В {isekai_world} вы сталкиваетесь с {enemy}. Это решающая битва, в которой ваша {magic_ability} проявляется во всей красе.", "requires": ["approaching_cave"], "ensures": ["ordeal_faced"]}
+{"stage": "ordeal", "text": "Финальная схватка с {enemy} становится испытанием всей вашей воли и силы. Победа близка!", "requires": ["approaching_cave"], "ensures": ["ordeal_faced"]}
+{"stage": "reward", "text": "Вы находите мощный артефакт, который изменит судьбу {isekai_world}.", "requires": ["ordeal_faced"], "ensures": ["reward_received"]}
+{"stage": "reward", "text": "Ваши усилия вознаграждены находкой, способной принести мир {isekai_world}.", "requires": ["ordeal_faced"], "ensures": ["reward_received"]}
+{"stage": "road_back", "text": "Возвращаясь к месту, откуда вы начали, вы понимаете: испытания только начинаются.", "requires": ["reward_received"], "ensures": ["return_begun"]}
+{"stage": "road_back", "text": "Ваш путь назад в {isekai_origin} опасен, но вы готовы ко всему.", "requires": ["reward_received"], "ensures": ["return_begun"]}
+{"stage": "resurrection", "text": "Схватка меняет вас навсегда, открывая возможности, о которых вы раньше не подозревали.", "requires": ["return_begun"], "ensures": ["resurrected"]}
+{"stage": "resurrection", "text": "Последняя встреча с вашим врагом заставляет вас осознать истинную силу внутри вас.", "requires": ["return_begun"], "ensures": ["resurrected"]}
+{"stage": "return_with_elixir", "text": "Вы возвращаетесь домой, неся с собой символ перемен и надежду для {isekai_origin} и {isekai_world}.", "requires": ["resurrected"], "ensures": ["story_complete"]}
+{"stage": "return_with_elixir", "text": "Вернувшись в {isekai_origin}, вы приносите спасение и свет в мир, изменённый вашей решимостью.", "requires": ["resurrected"], "ensures": ["story_complete"]}
