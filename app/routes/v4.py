@@ -11,7 +11,7 @@ security = HTTPBasic()
 
 DATAPATH = os.path.join(os.path.dirname(__file__), "..", "..", "data", "v4")
 
-stage_templates_df = pd.read_csv(os.path.join(DATAPATH, "stage_templates.csv"), quotechar='"')
+stage_templates_df = pd.read_csv(os.path.join(DATAPATH, "stage_templates.csv"), quotechar='"', error_bad_lines=False)
 variables_df = pd.read_csv(os.path.join(DATAPATH, "variables.csv"), quotechar='"')
 
 router = APIRouter()
