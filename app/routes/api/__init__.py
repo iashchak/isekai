@@ -7,6 +7,7 @@ from . import v1
 from . import v2
 from . import v3
 from . import v4
+from . import v5
 from . import health
 
 def verify_credentials(credentials: HTTPBasicCredentials = Depends(HTTPBasic())):
@@ -26,5 +27,6 @@ router.include_router(router=v1.router, prefix="/v1", dependencies=[Depends(veri
 router.include_router(router=v2.router, prefix="/v2", dependencies=[Depends(verify_credentials)])
 router.include_router(router=v3.router, prefix="/v3", dependencies=[Depends(verify_credentials)])
 router.include_router(router=v4.router, prefix="/v4", dependencies=[Depends(verify_credentials)])
+router.include_router(router=v5.router, prefix="/v5", dependencies=[Depends(verify_credentials)])
 
 router.include_router(router=health.router)

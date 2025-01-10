@@ -1,0 +1,565 @@
+[
+    {
+        "stage": "ordinary_world",
+        "text": "Вы живете простой и довольно унылой жизнью в современном городе. Ничто не предвещает беды.",
+        "requires": [],
+        "ensures": [
+            "know_place"
+        ],
+        "story_id": 1
+    },
+    {
+        "stage": "call_to_adventure",
+        "text": "После вашей трагической (но в комическом ключе) смерти, вы оказываетесь в некоем пространстве, где встречаете легкомысленную богиню. Она насмешливо описывает обстоятельства вашей кончины и предлагает отправиться в волшебный мир.",
+        "requires": [
+            "know_place"
+        ],
+        "ensures": [
+            "call_received",
+            "death",
+            "funny_death",
+            "offer_received"
+        ],
+        "story_id": 1
+    },
+    {
+        "stage": "refusal_of_call",
+        "text": "Вы изначально отказываетесь, сомневаясь в своих способностях и испытывая страх перед неизвестным.",
+        "requires": [
+            "call_received",
+            "offer_received"
+        ],
+        "ensures": [
+            "call_refused"
+        ],
+        "story_id": 1
+    },
+    {
+        "stage": "meeting_the_mentor",
+        "text": "Богиня, неожиданно для вас, решает сопровождать вас, давая саркастичные, но полезные наставления о новом мире.",
+        "requires": [
+            "call_refused"
+        ],
+        "ensures": [
+            "mentor_met"
+        ],
+        "story_id": 1
+    },
+    {
+        "stage": "crossing_first_threshold",
+        "text": "Вы с богиней перешагиваете через портал, сталкиваясь с нелепостью новой реальности, полной магии и пародий на ролевые игры.",
+        "requires": [
+            "mentor_met"
+        ],
+        "ensures": [
+            "crossed_threshold"
+        ],
+        "story_id": 1
+    },
+    {
+        "stage": "tests_allies_enemies",
+        "text": "Вы собираете комичную команду союзников, сталкиваясь с мелкими проблемами и монстрами.",
+        "requires": [
+            "crossed_threshold"
+        ],
+        "ensures": [
+            "enemy_encountered",
+            "weird_team"
+        ],
+        "story_id": 1
+    },
+    {
+        "stage": "approach_inmost_cave",
+        "text": "Вы осознаете, что без плана в этом мире можно погибнуть. Наступает момент планирования серьезных действий.",
+        "requires": [
+            "enemy_encountered"
+        ],
+        "ensures": [
+            "approaching_cave"
+        ],
+        "story_id": 1
+    },
+    {
+        "stage": "ordeal",
+        "text": "Ваша команда сталкивается с крупным противником, решая положиться на взаимопомощь и везение.",
+        "requires": [
+            "approaching_cave"
+        ],
+        "ensures": [
+            "ordeal_faced"
+        ],
+        "story_id": 1
+    },
+    {
+        "stage": "reward",
+        "text": "Вы одерживаете маленькую, но значимую победу, получая финансовое вознаграждение и признание.",
+        "requires": [
+            "ordeal_faced"
+        ],
+        "ensures": [
+            "reward_received"
+        ],
+        "story_id": 1
+    },
+    {
+        "stage": "road_back",
+        "text": "Вы решаете, что возвращение в старый мир бессмысленно, так как новый живее и ярче.",
+        "requires": [
+            "reward_received"
+        ],
+        "ensures": [
+            "return_begun",
+            "decided_to_stay"
+        ],
+        "story_id": 1
+    },
+    {
+        "stage": "resurrection",
+        "text": "Пережив ряд неудач и абсурдных ситуаций, вы внутренне меняетесь, обретая уверенность.",
+        "requires": [
+            "return_begun"
+        ],
+        "ensures": [
+            "resurrected",
+            "became_confident"
+        ],
+        "story_id": 1
+    },
+    {
+        "stage": "return_with_elixir",
+        "text": "Вы решаете остаться в новом мире, где сможете быть собой и продолжать приключения со своей странной командой.",
+        "requires": [
+            "resurrected",
+            "weird_team",
+            "decided_to_stay"
+        ],
+        "ensures": [
+            "story_complete"
+        ],
+        "story_id": 1
+    },
+    {
+        "stage": "ordinary_world",
+        "text": "Вы проводите время дома, погруженные в собственные фантазии, и внезапно переноситесь в иную реальность.",
+        "requires": [],
+        "ensures": [
+            "know_place"
+        ],
+        "story_id": 2
+    },
+    {
+        "stage": "call_to_adventure",
+        "text": "На незнакомых улицах нового мира вы сталкиваетесь с опасностями и втягиваетесь в конфликт.",
+        "requires": [
+            "know_place"
+        ],
+        "ensures": [
+            "call_received"
+        ],
+        "story_id": 2
+    },
+    {
+        "stage": "refusal_of_call",
+        "text": "Вы изначально растеряны и отказываетесь принимать участие в событиях, не понимая, почему оказались здесь.",
+        "requires": [
+            "call_received"
+        ],
+        "ensures": [
+            "call_refused"
+        ],
+        "story_id": 2
+    },
+    {
+        "stage": "meeting_the_mentor",
+        "text": "Персонаж с особыми чертами появляется, чтобы помочь вам разобраться в ситуации и обрести доверие.",
+        "requires": [
+            "call_refused"
+        ],
+        "ensures": [
+            "mentor_met"
+        ],
+        "story_id": 2
+    },
+    {
+        "stage": "crossing_first_threshold",
+        "text": "Вы принимаете участие в событиях, но первое крупное столкновение заканчивается вашей смертью… и возвращением назад во времени.",
+        "requires": [
+            "mentor_met"
+        ],
+        "ensures": [
+            "crossed_threshold"
+        ],
+        "story_id": 2
+    },
+    {
+        "stage": "tests_allies_enemies",
+        "text": "Вы снова и снова переживаете одни и те же события, пытаясь изменить исход, сталкиваясь с предательством и учась избегать ошибок.",
+        "requires": [
+            "crossed_threshold"
+        ],
+        "ensures": [
+            "enemy_encountered"
+        ],
+        "story_id": 2
+    },
+    {
+        "stage": "approach_inmost_cave",
+        "text": "Мучительные повторения психологически ломают вас, но вы начинаете использовать петлю времени во благо.",
+        "requires": [
+            "enemy_encountered"
+        ],
+        "ensures": [
+            "approaching_cave"
+        ],
+        "story_id": 2
+    },
+    {
+        "stage": "ordeal",
+        "text": "Кульминационный момент: вы жертвуете собой и одновременно ищете способ сохранить жизнь и защитить близких.",
+        "requires": [
+            "approaching_cave"
+        ],
+        "ensures": [
+            "ordeal_faced"
+        ],
+        "story_id": 2
+    },
+    {
+        "stage": "reward",
+        "text": "С каждым новым повторением вы избегаете прошлых ошибок, наращивая свои навыки и стратегическое мышление.",
+        "requires": [
+            "ordeal_faced"
+        ],
+        "ensures": [
+            "reward_received",
+            "became_confident"
+        ],
+        "story_id": 2
+    },
+    {
+        "stage": "road_back",
+        "text": "Идея вернуться в старый мир исчезает, так как теперь у вас есть друзья и миссия в новом мире.",
+        "requires": [
+            "reward_received"
+        ],
+        "ensures": [
+            "return_begun",
+            "decided_to_stay"
+        ],
+        "story_id": 2
+    },
+    {
+        "stage": "resurrection",
+        "text": "Вы внутренне изменяетесь, обретая силу воли и способность активно изменять ход событий.",
+        "requires": [
+            "return_begun"
+        ],
+        "ensures": [
+            "resurrected"
+        ],
+        "story_id": 2
+    },
+    {
+        "stage": "return_with_elixir",
+        "text": "Вы решаете остаться и продолжить борьбу за мир и стабильность в новом мире.",
+        "requires": [
+            "resurrected",
+            "decided_to_stay"
+        ],
+        "ensures": [
+            "story_complete"
+        ],
+        "story_id": 2
+    },
+    {
+        "stage": "ordinary_world",
+        "text": "Вы призваны из разных измерений с группой людей в волшебный мир, где каждый получает особенность.",
+        "requires": [
+            "group"
+        ],
+        "ensures": [
+            "know_place",
+            "weak_appearance"
+        ],
+        "story_id": 3
+    },
+    {
+        "stage": "call_to_adventure",
+        "text": "Вы узнаёте, что должны спасти королевство от угрозы, но вас считают бесполезным.",
+        "requires": [
+            "know_place",
+            "weak_appearance"
+        ],
+        "ensures": [
+            "call_received"
+        ],
+        "story_id": 3
+    },
+    {
+        "stage": "refusal_of_call",
+        "text": "Из-за насмешек и недоверия вы сомневаетесь в своих силах и целесообразности участия в защите.",
+        "requires": [
+            "call_received",
+            "weak_appearance"
+        ],
+        "ensures": [
+            "call_refused",
+            "not_confident"
+        ],
+        "story_id": 3
+    },
+    {
+        "stage": "meeting_the_mentor",
+        "text": "Персонаж, видящий ваш потенциал, помогает вам найти уверенность и направляет вас на путь развития.",
+        "requires": [
+            "call_refused"
+        ],
+        "ensures": [
+            "mentor_met",
+            "confident"
+        ],
+        "story_id": 3
+    },
+    {
+        "stage": "crossing_first_threshold",
+        "text": "Вы решаете принять вызов и начать самостоятельное путешествие для освоения вашей силы, покидая дворец.",
+        "requires": [
+            "mentor_met"
+        ],
+        "ensures": [
+            "crossed_threshold"
+        ],
+        "story_id": 3
+    },
+    {
+        "stage": "tests_allies_enemies",
+        "text": "По пути вы находите союзников и сталкиваетесь с опасными противниками, развивая ваши навыки.",
+        "requires": [
+            "crossed_threshold"
+        ],
+        "ensures": [
+            "enemy_encountered"
+        ],
+        "story_id": 3
+    },
+    {
+        "stage": "approach_inmost_cave",
+        "text": "Вы начинаете осознавать ваш скрытый потенциал преодолевать внутренние барьеры сомнения.",
+        "requires": [
+            "enemy_encountered"
+        ],
+        "ensures": [
+            "approaching_cave"
+        ],
+        "story_id": 3
+    },
+    {
+        "stage": "ordeal",
+        "text": "Вы участвуете в крупной битве, где ваша уникальность становится ключом к успеху.",
+        "requires": [
+            "approaching_cave"
+        ],
+        "ensures": [
+            "ordeal_faced"
+        ],
+        "story_id": 3
+    },
+    {
+        "stage": "reward",
+        "text": "Признание и новые ресурсы открывают перед вами новые горизонты для дальнейшего развития и лидерства.",
+        "requires": [
+            "ordeal_faced"
+        ],
+        "ensures": [
+            "reward_received"
+        ],
+        "story_id": 3
+    },
+    {
+        "stage": "road_back",
+        "text": "Мысль о возвращении домой уступает место желанию защитить новый мир и его жителей.",
+        "requires": [
+            "reward_received"
+        ],
+        "ensures": [
+            "return_begun",
+            "motherland_obtained"
+        ],
+        "story_id": 3
+    },
+    {
+        "stage": "resurrection",
+        "text": "Вы превращаетесь из изгоя в лидера, чьи решения меняют судьбы народов.",
+        "requires": [
+            "return_begun"
+        ],
+        "ensures": [
+            "resurrected"
+        ],
+        "story_id": 3
+    },
+    {
+        "stage": "return_with_elixir",
+        "text": "Оставаясь в новом королевстве, вы находите своё призвание и новую родину.",
+        "requires": [
+            "resurrected",
+            "motherland_obtained"
+        ],
+        "ensures": [
+            "story_complete"
+        ],
+        "story_id": 3
+    },
+    {
+        "stage": "ordinary_world",
+        "text": "Вы живете обычной жизнью в современном мегаполисе, когда внезапно погибаете в курьезных обстоятельствах.",
+        "requires": [],
+        "ensures": [
+            "know_place",
+            "death",
+            "funny_death"
+        ],
+        "story_id": 4
+    },
+    {
+        "stage": "call_to_adventure",
+        "text": "После смерти вы возрождаетесь в фэнтезийном мире в облике существа, считающегося слабым и неприметным.",
+        "requires": [
+            "know_place"
+        ],
+        "ensures": [
+            "call_received",
+            "weak_appearance",
+            "fantacy_world"
+        ],
+        "story_id": 4
+    },
+    {
+        "stage": "refusal_of_call",
+        "text": "Первоначально вы в ужасе от своего нового облика и ситуации, в которой оказались.",
+        "requires": [
+            "weak_appearance",
+            "call_received"
+        ],
+        "ensures": [
+            "call_refused"
+        ],
+        "story_id": 4
+    },
+    {
+        "stage": "meeting_the_mentor",
+        "text": "Могущественный дракон берет на себя роль наставника и объясняет вам законы нового мира.",
+        "requires": [
+            "call_refused"
+        ],
+        "ensures": [
+            "mentor_met"
+        ],
+        "story_id": 4
+    },
+    {
+        "stage": "crossing_first_threshold",
+        "text": "Вы начинаете использовать уникальные способности, делая первые шаги к обретению статуса.",
+        "requires": [
+            "skills_rolled",
+            "mentor_met"
+        ],
+        "ensures": [
+            "crossed_threshold",
+            "skills_basic"
+        ],
+        "story_id": 4
+    },
+    {
+        "stage": "tests_allies_enemies",
+        "text": "Вы встречаете других разумных монстров и союзников, но из-за вашего облика некоторые изначально боятся или недооценивают вас.",
+        "requires": [
+            "weak_appearance",
+            "crossed_threshold"
+        ],
+        "ensures": [
+            "enemy_encountered"
+        ],
+        "story_id": 4
+    },
+    {
+        "stage": "approach_inmost_cave",
+        "text": "Вы пытаетесь преодолеть недоверие и устроить дипломатические связи для создания собственного поселения.",
+        "requires": [
+            "enemy_encountered"
+        ],
+        "ensures": [
+            "approaching_cave"
+        ],
+        "story_id": 4
+    },
+    {
+        "stage": "ordeal",
+        "text": "Вы сталкиваетесь с серьезной угрозой, такой как армия захватчиков, и вступаете в бой за безопасность вашего нового сообщества.",
+        "requires": [
+            "approaching_cave"
+        ],
+        "ensures": [
+            "ordeal_faced"
+        ],
+        "story_id": 4
+    },
+    {
+        "stage": "reward",
+        "text": "Благодаря вашей победе вы получаете признание, авторитет и возможно, легендарные способности, создавая фракцию, где могут сосуществовать монстры и люди.",
+        "requires": [
+            "ordeal_faced"
+        ],
+        "ensures": [
+            "reward_received",
+            "motherland_obtained"
+        ],
+        "story_id": 4
+    },
+    {
+        "stage": "road_back",
+        "text": "Вы понимаете, что ваша новая жизнь и друзья важнее всего, что было раньше.",
+        "requires": [
+            "reward_received"
+        ],
+        "ensures": [
+            "return_begun"
+        ],
+        "story_id": 4
+    },
+    {
+        "stage": "resurrection",
+        "text": "Ваше новое существование и влияние только укрепляются, вы становитесь лидером и меняете устои мира.",
+        "requires": [
+            "return_begun"
+        ],
+        "ensures": [
+            "resurrected"
+        ],
+        "story_id": 4
+    },
+    {
+        "stage": "return_with_elixir",
+        "text": "Отказ от возвращения в человеческую жизнь кажется единственно верным решением. Вы остаетесь в мире, где обрели новую семью и смысл жизни.",
+        "requires": [
+            "resurrected",
+            "motherland_obtained"
+        ],
+        "ensures": [
+            "story_complete"
+        ],
+        "story_id": 4
+    },
+    {
+        "stage": "return_with_elixir",
+        "text": "Так как после такой глупой смерти вам дороги обратно нет, вы ждете с ужасом, что же будет дальше.",
+        "requires": [
+            "resurrected",
+            "funny_death"
+        ],
+        "ensures": [
+            "story_complete"
+        ],
+        "story_id": null
+    }
+]
