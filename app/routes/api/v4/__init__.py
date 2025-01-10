@@ -1,13 +1,10 @@
 from fastapi import APIRouter
-from fastapi.security import HTTPBasic
 import pandas as pd
 import os
 import random
 from typing import Dict, List, Optional, Set
 
-security = HTTPBasic()
-
-DATAPATH = os.path.join(os.path.dirname(__file__), "..", "..", "data", "v4")
+DATAPATH = os.path.join(os.path.dirname(__file__), "..", "..", "..", "..", "data", "v4")
 
 stage_templates_df = pd.read_json(os.path.join(DATAPATH, "stage_templates.jsonl"), lines=True)
 variables_df = pd.read_json(os.path.join(DATAPATH, "variables.jsonl"), lines=True)
@@ -38,7 +35,7 @@ def apply_template(template: Dict[str, object], story_state: StoryState) -> str:
     return template["text"].format(**story_state.variables)
 
 @router.get(
-    "/generate_story",
+    "/generate",
     description="Generates a random story with stages.",
 )
 async def generate_story():
@@ -72,10 +69,3 @@ async def generate_story():
         steps.append({"step": stage, "value": final_text})
 
     return {step["step"]: step["value"] for step in steps}
-
-if __name__ == "__main__":
-    import asyncio
-    
-    if __name__ == "__main__":
-        result = asyncio.run(generate_story())
-        print(result)

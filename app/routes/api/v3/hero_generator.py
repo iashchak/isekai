@@ -8,7 +8,7 @@ from faker import Faker
 import numpy as np
 
 DATAPATH = os.path.join(os.path.dirname(__file__),
-                        "..", "..", "..", "data", "v2")
+                        "..", "..", "..", "..", "data", "v2")
 
 # Read CSV files into a dictionary of DataFrames: attributes["skill"], etc.
 attributes = {

@@ -1,13 +1,10 @@
-from fastapi import APIRouter, Depends
-from fastapi.security import HTTPBasic, HTTPBasicCredentials
-from app.utils.helpers import select_reverse_exponential_items, select_random_item, verify_credentials
+from fastapi import APIRouter
+from app.utils.helpers import select_reverse_exponential_items, select_random_item
 import pandas as pd
 import os
 import yaml
-# Создание объекта для базовой аутентификации
-security = HTTPBasic()
 
-DATAPATH = os.path.join(os.path.dirname(__file__), "..", "..", "data", "v2")
+DATAPATH = os.path.join(os.path.dirname(__file__), "..", "..", "..", "..","data", "v2")
 
 dfs = [
     pd.read_csv(os.path.join(DATAPATH, f)) for f in os.listdir(DATAPATH) if f.endswith(".csv")
@@ -21,8 +18,7 @@ router = APIRouter()
     "/generate",
     description="Generates a random isekai scenario based on optional query parameters.",
 )
-async def v2(k: int = 1, n: int = 1, p_zero: float = 0.4, credentials: HTTPBasicCredentials = Depends(security)):
-    verify_credentials(credentials)
+async def v2(k: int = 1, n: int = 1, p_zero: float = 0.4):
     stats = {}
     for df in dfs:
         for column in df.columns:

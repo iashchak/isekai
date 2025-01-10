@@ -27,7 +27,7 @@ class MonomythSteps(Enum):
     FREEDOM_TO_LIVE = "FREEDOM_TO_LIVE"
 
 DATAPATH = os.path.join(os.path.dirname(__file__),
-                        "..", "..", "..", "data", "v3")
+                        "..", "..", "..", "..","data", "v3")
 
 # Read CSV files into a dictionary of DataFrames: attributes["skill"], etc.
 attributes = {

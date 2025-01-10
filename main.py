@@ -5,7 +5,7 @@ from app.routes import router
 app = FastAPI()
 
 # Include routes
-app.include_router(router, prefix="/api")
+app.include_router(router)
 
 def custom_openapi():
     if app.openapi_schema:
