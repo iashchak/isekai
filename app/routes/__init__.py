@@ -7,5 +7,5 @@ router = APIRouter()
 from fastapi.security import HTTPBasic
 security = HTTPBasic()
 
-router.include_router(api.router, prefix="/api")
+router.include_router(api.api_router, prefix="/api")
 router.include_router(privacy.router)

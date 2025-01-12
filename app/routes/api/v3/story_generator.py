@@ -257,9 +257,3 @@ class StoryGenerator(Machine):
             story["random_seed"] = self.random_seed
 
         return story
-
-
-story_generator = StoryGenerator()
-story_generator.set_random_seed(42)
-story_data = story_generator.generate_story()
-print(story_data)

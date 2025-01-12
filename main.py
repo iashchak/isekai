@@ -1,8 +1,11 @@
 from fastapi import FastAPI
 from fastapi.openapi.utils import get_openapi
 from app.routes import router
+import logging
 
-app = FastAPI()
+logger = logging.getLogger("uvicorn.error")
+
+app = FastAPI(title='iashchak')
 
 # Include routes
 app.include_router(router)
