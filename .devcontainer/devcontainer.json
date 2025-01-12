@@ -18,7 +18,8 @@
         "ms-python.python",
         "charliermarsh.ruff",
         "mechatroner.rainbow-csv",
-        "cyrusfirheir.twee3-language-tools"
+        "cyrusfirheir.twee3-language-tools",
+        "Iashchak.isekai-vscode"
       ],
       "settings":{
         "ruff.nativeServer":"on",
