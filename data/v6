@@ -1,0 +1,345 @@
+[
+  {
+    "stage": "ordinary_world",
+    "text": "Вы живете простой и довольно унылой жизнью в современном городе. Ничто не предвещает беды.",
+    "requires": [],
+    "ensures": ["know_place"],
+    "uuid": "1622c31e-d8f0-46b2-8579-78a625218c33"
+  },
+  {
+    "stage": "call_to_adventure",
+    "text": "После вашей трагической (но в комическом ключе) смерти, вы оказываетесь в некоем пространстве, где встречаете легкомысленную богиню. Она насмешливо описывает обстоятельства вашей кончины и предлагает отправиться в волшебный мир.",
+    "requires": ["know_place"],
+    "ensures": ["call_received", "death", "funny_death", "offer_received"],
+    "uuid": "5b87389b-bdfb-4a1c-9051-7c0c0aed2363"
+  },
+  {
+    "stage": "refusal_of_call",
+    "text": "Вы изначально отказываетесь, сомневаясь в своих способностях и испытывая страх перед неизвестным.",
+    "requires": ["call_received", "offer_received"],
+    "ensures": ["call_refused"],
+    "uuid": "652ca964-1e76-4e63-a535-2c95ae498c9c"
+  },
+  {
+    "stage": "meeting_the_mentor",
+    "text": "Богиня, неожиданно для вас, решает сопровождать вас, давая саркастичные, но полезные наставления о новом мире.",
+    "requires": ["call_refused"],
+    "ensures": ["mentor_met"],
+    "uuid": "3bdacde6-b253-4974-a4f1-b0383ae656d1"
+  },
+  {
+    "stage": "crossing_first_threshold",
+    "text": "Вы с богиней перешагиваете через портал, сталкиваясь с нелепостью новой реальности, полной магии и пародий на ролевые игры.",
+    "requires": ["mentor_met"],
+    "ensures": ["crossed_threshold"],
+    "uuid": "a29c3ede-5d7e-4ba5-9566-ea5dd2cc24ad"
+  },
+  {
+    "stage": "tests_allies_enemies",
+    "text": "Вы собираете комичную команду союзников, сталкиваясь с мелкими проблемами и монстрами.",
+    "requires": ["crossed_threshold"],
+    "ensures": ["enemy_encountered", "weird_team"],
+    "uuid": "0f7d1102-df40-49e5-b597-941c0dc5faec"
+  },
+  {
+    "stage": "approach_inmost_cave",
+    "text": "Вы осознаете, что без плана в этом мире можно погибнуть. Наступает момент планирования серьезных действий.",
+    "requires": ["enemy_encountered"],
+    "ensures": ["approaching_cave"],
+    "uuid": "4bbec87e-50d7-41ec-a0da-be04c40f6a02"
+  },
+  {
+    "stage": "ordeal",
+    "text": "Ваша команда сталкивается с крупным противником, решая положиться на взаимопомощь и везение.",
+    "requires": ["approaching_cave"],
+    "ensures": ["ordeal_faced"],
+    "uuid": "35df145e-e2bf-418b-a4a5-a231617743b4"
+  },
+  {
+    "stage": "reward",
+    "text": "Вы одерживаете маленькую, но значимую победу, получая финансовое вознаграждение и признание.",
+    "requires": ["ordeal_faced"],
+    "ensures": ["reward_received"],
+    "uuid": "42c6bcc2-be67-4128-b2de-56fa2d61bad8"
+  },
+  {
+    "stage": "road_back",
+    "text": "Вы решаете, что возвращение в старый мир бессмысленно, так как новый живее и ярче.",
+    "requires": ["reward_received"],
+    "ensures": ["return_begun", "decided_to_stay"],
+    "uuid": "59f48d5d-3d81-4595-ad55-c91c50e967de"
+  },
+  {
+    "stage": "resurrection",
+    "text": "Пережив ряд неудач и абсурдных ситуаций, вы внутренне меняетесь, обретая уверенность.",
+    "requires": ["return_begun"],
+    "ensures": ["resurrected", "became_confident"],
+    "uuid": "86fbbd0c-4f0a-4cb0-aa1e-e2cd92a5bc9b"
+  },
+  {
+    "stage": "return_with_elixir",
+    "text": "Вы решаете остаться в новом мире, где сможете быть собой и продолжать приключения со своей странной командой.",
+    "requires": ["resurrected", "weird_team", "decided_to_stay"],
+    "ensures": ["story_complete"],
+    "uuid": "2132ad07-a4ca-4c03-9053-58d8a119e871"
+  },
+  {
+    "stage": "ordinary_world",
+    "text": "Вы проводите время дома, погруженные в собственные фантазии, и внезапно переноситесь в иную реальность.",
+    "requires": [],
+    "ensures": ["know_place"],
+    "uuid": "355f31bc-8cae-4bfe-a807-f0d7790b2e08"
+  },
+  {
+    "stage": "call_to_adventure",
+    "text": "На незнакомых улицах нового мира вы сталкиваетесь с опасностями и втягиваетесь в конфликт.",
+    "requires": ["know_place"],
+    "ensures": ["call_received"],
+    "uuid": "cbe6555d-ccc2-4fab-ab6d-df44d87f0d5c"
+  },
+  {
+    "stage": "refusal_of_call",
+    "text": "Вы изначально растеряны и отказываетесь принимать участие в событиях, не понимая, почему оказались здесь.",
+    "requires": ["call_received"],
+    "ensures": ["call_refused"],
+    "uuid": "c87fb13f-f0a4-44d1-9777-3f378d8e7960"
+  },
+  {
+    "stage": "meeting_the_mentor",
+    "text": "Персонаж с особыми чертами появляется, чтобы помочь вам разобраться в ситуации и обрести доверие.",
+    "requires": ["call_refused"],
+    "ensures": ["mentor_met"],
+    "uuid": "1e67e893-176e-4519-8ce0-9e43f5fd1ec7"
+  },
+  {
+    "stage": "crossing_first_threshold",
+    "text": "Вы принимаете участие в событиях, но первое крупное столкновение заканчивается вашей смертью… и возвращением назад во времени.",
+    "requires": ["mentor_met"],
+    "ensures": ["crossed_threshold"],
+    "uuid": "4dea68ef-de15-4d99-a201-65cee8f44b69"
+  },
+  {
+    "stage": "tests_allies_enemies",
+    "text": "Вы снова и снова переживаете одни и те же события, пытаясь изменить исход, сталкиваясь с предательством и учась избегать ошибок.",
+    "requires": ["crossed_threshold"],
+    "ensures": ["enemy_encountered"],
+    "uuid": "eb215fb9-f646-45d7-97e4-9903295a9b9d"
+  },
+  {
+    "stage": "approach_inmost_cave",
+    "text": "Мучительные повторения психологически ломают вас, но вы начинаете использовать петлю времени во благо.",
+    "requires": ["enemy_encountered"],
+    "ensures": ["approaching_cave"],
+    "uuid": "0fd3ced7-15be-4f35-bb34-6e6f8776c2d3"
+  },
+  {
+    "stage": "ordeal",
+    "text": "Кульминационный момент: вы жертвуете собой и одновременно ищете способ сохранить жизнь и защитить близких.",
+    "requires": ["approaching_cave"],
+    "ensures": ["ordeal_faced"],
+    "uuid": "80aae360-c584-44df-bdae-6640e0cce2c0"
+  },
+  {
+    "stage": "reward",
+    "text": "С каждым новым повторением вы избегаете прошлых ошибок, наращивая свои навыки и стратегическое мышление.",
+    "requires": ["ordeal_faced"],
+    "ensures": ["reward_received", "became_confident"],
+    "uuid": "700feae9-9c5e-4381-a060-77eb22a6f043"
+  },
+  {
+    "stage": "road_back",
+    "text": "Идея вернуться в старый мир исчезает, так как теперь у вас есть друзья и миссия в новом мире.",
+    "requires": ["reward_received"],
+    "ensures": ["return_begun", "decided_to_stay"],
+    "uuid": "e11e9ad1-a34b-44c2-bc42-a657834b20ef"
+  },
+  {
+    "stage": "resurrection",
+    "text": "Вы внутренне изменяетесь, обретая силу воли и способность активно изменять ход событий.",
+    "requires": ["return_begun"],
+    "ensures": ["resurrected"],
+    "uuid": "c8249c37-bd40-4607-8041-64a11e76831b"
+  },
+  {
+    "stage": "return_with_elixir",
+    "text": "Вы решаете остаться и продолжить борьбу за мир и стабильность в новом мире.",
+    "requires": ["resurrected", "decided_to_stay"],
+    "ensures": ["story_complete"],
+    "uuid": "5b98a404-cf8f-46f6-8712-7f45df3f4d36"
+  },
+  {
+    "stage": "ordinary_world",
+    "text": "Вы призваны из разных измерений с группой людей в волшебный мир, где каждый получает особенность.",
+    "requires": ["group"],
+    "ensures": ["know_place", "weak_appearance"],
+    "uuid": "2ee6c39b-f859-438e-988b-f9e372810668"
+  },
+  {
+    "stage": "call_to_adventure",
+    "text": "Вы узнаёте, что должны спасти королевство от угрозы, но вас считают бесполезным.",
+    "requires": ["know_place", "weak_appearance"],
+    "ensures": ["call_received"],
+    "uuid": "111f862d-9ada-4686-a516-95028d7bc04d"
+  },
+  {
+    "stage": "refusal_of_call",
+    "text": "Из-за насмешек и недоверия вы сомневаетесь в своих силах и целесообразности участия в защите.",
+    "requires": ["call_received", "weak_appearance"],
+    "ensures": ["call_refused", "not_confident"],
+    "uuid": "54f3619b-fc65-4475-a674-8b1073d914cf"
+  },
+  {
+    "stage": "meeting_the_mentor",
+    "text": "Персонаж, видящий ваш потенциал, помогает вам найти уверенность и направляет вас на путь развития.",
+    "requires": ["call_refused"],
+    "ensures": ["mentor_met", "confident"],
+    "uuid": "ed032a29-21df-49e5-953e-f00a91de7b3d"
+  },
+  {
+    "stage": "crossing_first_threshold",
+    "text": "Вы решаете принять вызов и начать самостоятельное путешествие для освоения вашей силы, покидая дворец.",
+    "requires": ["mentor_met"],
+    "ensures": ["crossed_threshold"],
+    "uuid": "d85dc871-2211-4fbf-b4c5-5be402c2f9c4"
+  },
+  {
+    "stage": "tests_allies_enemies",
+    "text": "По пути вы находите союзников и сталкиваетесь с опасными противниками, развивая ваши навыки.",
+    "requires": ["crossed_threshold"],
+    "ensures": ["enemy_encountered"],
+    "uuid": "861826a6-baed-41ce-9336-74b2c632fe6f"
+  },
+  {
+    "stage": "approach_inmost_cave",
+    "text": "Вы начинаете осознавать ваш скрытый потенциал преодолевать внутренние барьеры сомнения.",
+    "requires": ["enemy_encountered"],
+    "ensures": ["approaching_cave"],
+    "uuid": "7f6fbe53-be30-48b3-98f7-b4d9ed51f9de"
+  },
+  {
+    "stage": "ordeal",
+    "text": "Вы участвуете в крупной битве, где ваша уникальность становится ключом к успеху.",
+    "requires": ["approaching_cave"],
+    "ensures": ["ordeal_faced"],
+    "uuid": "293afacf-4250-4762-aaa0-1ec95609ae56"
+  },
+  {
+    "stage": "reward",
+    "text": "Признание и новые ресурсы открывают перед вами новые горизонты для дальнейшего развития и лидерства.",
+    "requires": ["ordeal_faced"],
+    "ensures": ["reward_received"],
+    "uuid": "18e6d708-989e-4593-bf05-877863666506"
+  },
+  {
+    "stage": "road_back",
+    "text": "Мысль о возвращении домой уступает место желанию защитить новый мир и его жителей.",
+    "requires": ["reward_received"],
+    "ensures": ["return_begun", "motherland_obtained"],
+    "uuid": "f38f525d-aab6-443b-8197-c801a5fd7b5e"
+  },
+  {
+    "stage": "resurrection",
+    "text": "Вы превращаетесь из изгоя в лидера, чьи решения меняют судьбы народов.",
+    "requires": ["return_begun"],
+    "ensures": ["resurrected"],
+    "uuid": "4ff6a721-e2a4-4e24-80f4-e47507689830"
+  },
+  {
+    "stage": "return_with_elixir",
+    "text": "Оставаясь в новом королевстве, вы находите своё призвание и новую родину.",
+    "requires": ["resurrected", "motherland_obtained"],
+    "ensures": ["story_complete"],
+    "uuid": "61f935d7-a2d6-43bd-b6d1-2ffd1477b8d5"
+  },
+  {
+    "stage": "ordinary_world",
+    "text": "Вы живете обычной жизнью в современном мегаполисе, когда внезапно погибаете в курьезных обстоятельствах.",
+    "requires": [],
+    "ensures": ["know_place", "death", "funny_death"],
+    "uuid": "09720ae6-60fa-43fb-b62c-c7f7c850e138"
+  },
+  {
+    "stage": "call_to_adventure",
+    "text": "После смерти вы возрождаетесь в фэнтезийном мире в облике существа, считающегося слабым и неприметным.",
+    "requires": ["know_place"],
+    "ensures": ["call_received", "weak_appearance", "fantacy_world"],
+    "uuid": "c15c40f6-f3a0-4709-93c5-0b1833efb327"
+  },
+  {
+    "stage": "refusal_of_call",
+    "text": "Первоначально вы в ужасе от своего нового облика и ситуации, в которой оказались.",
+    "requires": ["weak_appearance", "call_received"],
+    "ensures": ["call_refused"],
+    "uuid": "221700c5-3145-4133-a4e4-7a97b92d8fae"
+  },
+  {
+    "stage": "meeting_the_mentor",
+    "text": "Могущественный дракон берет на себя роль наставника и объясняет вам законы нового мира.",
+    "requires": ["call_refused"],
+    "ensures": ["mentor_met"],
+    "uuid": "72302a16-6a49-48a2-8912-cf1e581bc812"
+  },
+  {
+    "stage": "crossing_first_threshold",
+    "text": "Вы начинаете использовать уникальные способности, делая первые шаги к обретению статуса.",
+    "requires": ["skills_rolled", "mentor_met"],
+    "ensures": ["crossed_threshold", "skills_basic"],
+    "uuid": "e2919459-00d1-4c8a-99b4-bb4c048d7f6a"
+  },
+  {
+    "stage": "tests_allies_enemies",
+    "text": "Вы встречаете других разумных монстров и союзников, но из-за вашего облика некоторые изначально боятся или недооценивают вас.",
+    "requires": ["weak_appearance", "crossed_threshold"],
+    "ensures": ["enemy_encountered"],
+    "uuid": "2fdcfb89-a001-4dab-9b91-89b79826cee8"
+  },
+  {
+    "stage": "approach_inmost_cave",
+    "text": "Вы пытаетесь преодолеть недоверие и устроить дипломатические связи для создания собственного поселения.",
+    "requires": ["enemy_encountered"],
+    "ensures": ["approaching_cave"],
+    "uuid": "bc3fc75a-cc2c-43e1-8836-bae2a6fb38c3"
+  },
+  {
+    "stage": "ordeal",
+    "text": "Вы сталкиваетесь с серьезной угрозой, такой как армия захватчиков, и вступаете в бой за безопасность вашего нового сообщества.",
+    "requires": ["approaching_cave"],
+    "ensures": ["ordeal_faced"],
+    "uuid": "0fd44959-bd6d-4609-8f87-b66661c56030"
+  },
+  {
+    "stage": "reward",
+    "text": "Благодаря вашей победе вы получаете признание, авторитет и возможно, легендарные способности, создавая фракцию, где могут сосуществовать монстры и люди.",
+    "requires": ["ordeal_faced"],
+    "ensures": ["reward_received", "motherland_obtained"],
+    "uuid": "e5fcf1d0-1d98-41a5-ba94-87342b3ef2cf"
+  },
+  {
+    "stage": "road_back",
+    "text": "Вы понимаете, что ваша новая жизнь и друзья важнее всего, что было раньше.",
+    "requires": ["reward_received"],
+    "ensures": ["return_begun"],
+    "uuid": "59e3fbf9-9d8d-4d19-b58d-413a2312862b"
+  },
+  {
+    "stage": "resurrection",
+    "text": "Ваше новое существование и влияние только укрепляются, вы становитесь лидером и меняете устои мира.",
+    "requires": ["return_begun"],
+    "ensures": ["resurrected"],
+    "uuid": "b9d90f14-0b31-4810-92c0-516d62376af8"
+  },
+  {
+    "stage": "return_with_elixir",
+    "text": "Отказ от возвращения в человеческую жизнь кажется единственно верным решением. Вы остаетесь в мире, где обрели новую семью и смысл жизни.",
+    "requires": ["resurrected", "motherland_obtained"],
+    "ensures": ["story_complete"],
+    "uuid": "a8b6c033-ae67-4354-9abc-02a907f0aeb4"
+  },
+  {
+    "stage": "return_with_elixir",
+    "text": "Так как после такой глупой смерти вам дороги обратно нет, вы ждете с ужасом, что же будет дальше.",
+    "requires": ["resurrected", "funny_death"],
+    "ensures": ["story_complete"],
+    "uuid": "0e5f049e-2978-4bd6-8b94-66bd590137ef"
+  }
+]
