@@ -1,6 +1,8 @@
 import secrets
+from sys import api_version
+
 from fastapi import APIRouter
-from fastapi import FastAPI, Depends, HTTPException, status
+from fastapi import Depends, HTTPException, status
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
 
 from . import v1
@@ -21,12 +23,12 @@ def verify_credentials(credentials: HTTPBasicCredentials = Depends(HTTPBasic()))
         )
     return credentials.username
 
-router = APIRouter()
+api_router = APIRouter()
 
-router.include_router(router=v1.router, prefix="/v1", dependencies=[Depends(verify_credentials)])
-router.include_router(router=v2.router, prefix="/v2", dependencies=[Depends(verify_credentials)])
-router.include_router(router=v3.router, prefix="/v3", dependencies=[Depends(verify_credentials)])
-router.include_router(router=v4.router, prefix="/v4", dependencies=[Depends(verify_credentials)])
-router.include_router(router=v5.router, prefix="/v5", dependencies=[Depends(verify_credentials)])
+api_router.include_router(router=v1.router, prefix="/v1", dependencies=[Depends(verify_credentials)])
+api_router.include_router(router=v2.router, prefix="/v2", dependencies=[Depends(verify_credentials)])
+api_router.include_router(router=v3.router, prefix="/v3", dependencies=[Depends(verify_credentials)])
+api_router.include_router(router=v4.router, prefix="/v4", dependencies=[Depends(verify_credentials)])
+api_router.include_router(router=v5.router, prefix="/v5", dependencies=[Depends(verify_credentials)])
 
-router.include_router(router=health.router)
+api_router.include_router(router=health.router)
